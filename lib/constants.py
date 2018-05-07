@@ -37,15 +37,15 @@ def read_json(filename, default):
     return r
 
 
-class BitcoinMainnet:
+class NewYorkCoinMainnet:
 
     TESTNET = False
-    WIF_PREFIX = 0x80
-    ADDRTYPE_P2PKH = 48
-    ADDRTYPE_P2SH = 50
-    SEGWIT_HRP = "ltc"
-    GENESIS = "12a765e31ffd4059bada1e25190f6e98c99d9714d334efa41a195a7e7e04bfe2"
-    DEFAULT_PORTS = {'t': '50001', 's': '50002'}
+    WIF_PREFIX = 0xbc
+    ADDRTYPE_P2PKH = 60
+    ADDRTYPE_P2SH = 22
+    SEGWIT_HRP = "nyc"
+    GENESIS = "5597f25c062a3038c7fd815fe46c67dedfcb3c839fbc8e01ed4044540d08fe48"
+    DEFAULT_PORTS = {'t': '50001', 's': '55002'}
     DEFAULT_SERVERS = read_json('servers.json', {})
     CHECKPOINTS = read_json('checkpoints.json', [])
 
@@ -64,57 +64,58 @@ class BitcoinMainnet:
         'p2wsh':       0x02aa7ed3,  # Zpub
     }
 
-
-class BitcoinTestnet:
+class NewYorkCoinTestnet:
 
     TESTNET = True
-    WIF_PREFIX = 0xbf
-    ADDRTYPE_P2PKH = 111
-    ADDRTYPE_P2SH = 58
-    SEGWIT_HRP = "tltc"
-    GENESIS = "4966625a4b2851d9fdee139e56211a0d88575f59ed816ff5e6a63deb4e3e29a0"
+    WIF_PREFIX = 0xf1
+    ADDRTYPE_P2PKH = 113
+    ADDRTYPE_P2SH = 196
+    SEGWIT_HRP = "tnyc"
+    GENESIS = "24463e4d3c625b0a9059f309044c2cf0d7e196cf2a6ecce901f24f681be33c8f"
     DEFAULT_PORTS = {'t': '51001', 's': '51002'}
     DEFAULT_SERVERS = read_json('servers_testnet.json', {})
     CHECKPOINTS = read_json('checkpoints_testnet.json', [])
 
     XPRV_HEADERS = {
-        'standard':    0x04358394,  # tprv
-        'p2wpkh-p2sh': 0x044a4e28,  # uprv
-        'p2wsh-p2sh':  0x024285b5,  # Uprv
-        'p2wpkh':      0x045f18bc,  # vprv
-        'p2wsh':       0x02575048,  # Vprv
+        'standard': 0x0488ade4,
+        'p2wpkh-p2sh': 0x049d7878,
+        'p2wsh-p2sh': 0x295b005,
+        'p2wpkh': 0x4b2430c,
+        'p2wsh': 0x2aa7a99
     }
     XPUB_HEADERS = {
-        'standard':    0x043587cf,  # tpub
-        'p2wpkh-p2sh': 0x044a5262,  # upub
-        'p2wsh-p2sh':  0x024289ef,  # Upub
-        'p2wpkh':      0x045f1cf6,  # vpub
-        'p2wsh':       0x02575483,  # Vpub
+        'standard': 0x0488b21e,
+        'p2wpkh-p2sh': 0x049d7cb2,
+        'p2wsh-p2sh': 0x295b43f,
+        'p2wpkh': 0x4b24746,
+        'p2wsh': 0x2aa7ed3
     }
 
 
-class BitcoinRegtest(BitcoinTestnet):
 
-    SEGWIT_HRP = "rltc"
-    GENESIS = "530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"
-    DEFAULT_SERVERS = read_json('servers_regtest.json', {})
-    CHECKPOINTS = []
+
+#class BitcoinRegtest(BitcoinTestnet):
+
+#    SEGWIT_HRP = "rnyc"
+#    GENESIS = "530827f38f93b43ed12af0b3ad25a288dc02ed74d6d7857862df51fc56c416f9"
+#    DEFAULT_SERVERS = read_json('servers_regtest.json', {})
+#    CHECKPOINTS = []
 
 
 # don't import net directly, import the module instead (so that net is singleton)
-net = BitcoinMainnet
+net = NewYorkCoinMainnet
 
 
 def set_mainnet():
     global net
-    net = BitcoinMainnet
+    net = NewYorkCoinMainnet
 
 
 def set_testnet():
     global net
-    net = BitcoinTestnet
+    net = NewYorkCoinTestnet
 
 
-def set_regtest():
-    global net
-    net = BitcoinRegtest
+#def set_regtest():
+#    global net
+#    net = BitcoinRegtest
