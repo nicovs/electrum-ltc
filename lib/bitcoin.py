@@ -41,7 +41,7 @@ from . import constants
 
 ################################## transactions
 
-COINBASE_MATURITY = 100
+COINBASE_MATURITY = 20
 COIN = 100000000
 
 # supported types of transaction outputs
@@ -657,7 +657,7 @@ from ecdsa.util import string_to_number, number_to_string
 
 def msg_magic(message):
     length = bfh(var_int(len(message)))
-    return b"\x19Litecoin Signed Message:\n" + length + message
+    return b"\x19NewYorkCoin Signed Message:\n" + length + message
 
 
 def verify_message(address, sig, message):

@@ -24,9 +24,9 @@
 # CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-from electrum_ltc.plugins import BasePlugin, hook
-from electrum_ltc.i18n import _
-from electrum_ltc.bitcoin import is_address
+from electrum_nyc.plugins import BasePlugin, hook
+from electrum_nyc.i18n import _
+from electrum_nyc.bitcoin import is_address
 
 
 class HW_PluginBase(BasePlugin):
@@ -67,7 +67,7 @@ class HW_PluginBase(BasePlugin):
         if keystore is None:
             keystore = wallet.get_keystore()
         if not is_address(address):
-            keystore.handler.show_error(_('Invalid Litecoin Address'))
+            keystore.handler.show_error(_('Invalid NewYorkCoin Address'))
             return False
         if not wallet.is_mine(address):
             keystore.handler.show_error(_('Address not in wallet.'))

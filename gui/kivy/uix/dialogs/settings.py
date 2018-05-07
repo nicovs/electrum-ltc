@@ -3,17 +3,17 @@ from kivy.factory import Factory
 from kivy.properties import ObjectProperty
 from kivy.lang import Builder
 
-from electrum_ltc.util import base_units_list
-from electrum_ltc.i18n import languages
-from electrum_ltc_gui.kivy.i18n import _
-from electrum_ltc.plugins import run_hook
-from electrum_ltc import coinchooser
+from electrum_nyc.util import base_units_list
+from electrum_nyc.i18n import languages
+from electrum_nyc_gui.kivy.i18n import _
+from electrum_nyc.plugins import run_hook
+from electrum_nyc import coinchooser
 
 from .choice_dialog import ChoiceDialog
 
 Builder.load_string('''
 #:import partial functools.partial
-#:import _ electrum_ltc_gui.kivy.i18n._
+#:import _ electrum_nyc_gui.kivy.i18n._
 
 <SettingsDialog@Popup>
     id: settings
@@ -44,7 +44,7 @@ Builder.load_string('''
                 SettingsItem:
                     bu: app.base_unit
                     title: _('Denomination') + ': ' + self.bu
-                    description: _("Base unit for Litecoin amounts.")
+                    description: _("Base unit for NewYorkCoin amounts.")
                     action: partial(root.unit_dialog, self)
                 CardSeparator
                 SettingsItem:
