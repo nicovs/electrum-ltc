@@ -45,7 +45,7 @@ class NewYorkCoinMainnet:
     ADDRTYPE_P2SH = 22
     SEGWIT_HRP = "nyc"
     GENESIS = "5597f25c062a3038c7fd815fe46c67dedfcb3c839fbc8e01ed4044540d08fe48"
-    DEFAULT_PORTS = {'t': '50001', 's': '55002'}
+    DEFAULT_PORTS = {'t': '50001', 's': '50002'}
     DEFAULT_SERVERS = read_json('servers.json', {})
     CHECKPOINTS = read_json('checkpoints.json', [])
 
